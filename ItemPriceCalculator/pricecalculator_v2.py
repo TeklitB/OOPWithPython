@@ -23,7 +23,7 @@ class Item:
         return self.price * self.quantity
 
     def apply_discount(self):
-        self.price = self.price * self.pay_rate
+        self.price = self.price * Item.pay_rate
 
     @classmethod
     def instantiate_from_csv(cls):
@@ -73,6 +73,9 @@ print(item2.calculate_total_price())
 
 # The class attribute can be updated per instance
 item3 = Item("Phone", 1000, 3)
+# When you try to set a value for the class variable using the object (a variable referring to the object or 
+# self keyword) but not the class, you are creating an instance variable that holds the same name as the 
+# class variable. 
 item3.pay_rate = 0.7
 item3.apply_discount()
 print(item3.price)
